@@ -13,9 +13,15 @@ install: ## 🛠️  Create venv and install dependencies
 	python3 -m venv $(VENV)
 	$(PIP) install -e ".[dev]"
 
-run: ## ▶️  Synthesize and play (usage: make run FILE=input.txt or TEXT="...")
+REF_AUDIO ?= reference.wav
+REF_TEXT  ?=
+SPEED     ?= 0.9
+
+run: ## ▶️  Synthesize and play (FILE=input.txt REF_AUDIO=ref.wav REF_TEXT="..." [SPEED=0.9])
 	@echo "🔊 synthesizing audio"
-	$(if $(FILE), $(PYTHON) tts.py -f $(FILE) --play, $(PYTHON) tts.py "$(TEXT)" --play)
+	$(if $(FILE), \
+		$(PYTHON) tts.py -f $(FILE) --ref-audio="$(REF_AUDIO)" --ref-text="$(REF_TEXT)" --speed=$(SPEED) --play, \
+		$(PYTHON) tts.py "$(TEXT)" --ref-audio="$(REF_AUDIO)" --ref-text="$(REF_TEXT)" --speed=$(SPEED) --play)
 
 test: ## ✅🧪 Run tests
 	@echo "✅🧪 running tests"
@@ -23,10 +29,10 @@ test: ## ✅🧪 Run tests
 
 lint: ## 🔍 Lint with ruff
 	@echo "🔍 linting"
-	$(PYTHON) -m ruff check tts.py tests
+	$(PYTHON) -m ruff check tts.py normalize.py tests
 
 format: ## ✨ Format with ruff
 	@echo "✨ formatting"
-	$(PYTHON) -m ruff format tts.py tests
+	$(PYTHON) -m ruff format tts.py normalize.py tests
 
 .PHONY: help install run test lint format
