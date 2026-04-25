@@ -13,9 +13,9 @@ install: ## 🛠️  Create venv and install dependencies
 	python3 -m venv $(VENV)
 	$(PIP) install -e ".[dev]"
 
-run: ## ▶️  Run the TTS script (usage: make run TEXT="...")
+run: ## ▶️  Synthesize and play (usage: make run FILE=input.txt or TEXT="...")
 	@echo "🔊 synthesizing audio"
-	$(PYTHON) tts.py $(TEXT)
+	$(if $(FILE), $(PYTHON) tts.py -f $(FILE) --play, $(PYTHON) tts.py "$(TEXT)" --play)
 
 test: ## ✅🧪 Run tests
 	@echo "✅🧪 running tests"
