@@ -13,21 +13,14 @@ install: ## 🛠️  Create venv and install dependencies
 	python3 -m venv $(VENV)
 	$(PIP) install -e ".[dev]"
 
-REF_AUDIO    ?= reference.wav
-REF_TEXT     ?=
-SPEED        ?= 0.9
-RECORD_SECS  ?= 10
+SPEED ?= 0.75
+VOICE ?= ar-MA-JamalNeural
 
-record: ## 🎙️  Record a reference clip from your mic (RECORD_SECS=10 REF_AUDIO=reference.wav)
-	@echo "🎙️  Recording $(RECORD_SECS)s — speak clearly in Darija, then note what you said for REF_TEXT"
-	ffmpeg -y -f avfoundation -i ":0" -t $(RECORD_SECS) -ar 22050 -ac 1 $(REF_AUDIO)
-	@echo "✅ Saved to $(REF_AUDIO)"
-
-run: ## ▶️  Synthesize and play (FILE=input.txt REF_AUDIO=ref.wav REF_TEXT="..." [SPEED=0.9])
+run: ## ▶️  Synthesize and play (FILE=input.txt or TEXT="..." [SPEED=0.9] [VOICE=ar-MA-MounaNeural])
 	@echo "🔊 synthesizing audio"
 	$(if $(FILE), \
-		$(PYTHON) tts.py -f $(FILE) --ref-audio="$(REF_AUDIO)" --ref-text="$(REF_TEXT)" --speed=$(SPEED) --play, \
-		$(PYTHON) tts.py "$(TEXT)" --ref-audio="$(REF_AUDIO)" --ref-text="$(REF_TEXT)" --speed=$(SPEED) --play)
+		$(PYTHON) tts.py -f $(FILE) --speed=$(SPEED) --voice=$(VOICE) --play, \
+		$(PYTHON) tts.py "$(TEXT)" --speed=$(SPEED) --voice=$(VOICE) --play)
 
 test: ## ✅🧪 Run tests
 	@echo "✅🧪 running tests"
@@ -41,4 +34,4 @@ format: ## ✨ Format with ruff
 	@echo "✨ formatting"
 	$(PYTHON) -m ruff format tts.py normalize.py tests
 
-.PHONY: help install record run test lint format
+.PHONY: help install run test lint format
