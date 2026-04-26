@@ -1,13 +1,13 @@
 # daarija-tts
 
-Text-to-speech CLI for Moroccan Darija (Arabic script), using Microsoft's `ar-MA` neural voices via `edge-tts`.
+Text-to-speech CLI for Moroccan Darija (Arabic script), using Microsoft's [ar-MA neural voices](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts#arabic) via [`edge-tts`](https://github.com/rany2/edge-tts).
 
 ## Voices
 
 | Voice | Gender |
 |---|---|
-| `ar-MA-JamalNeural` (default) | Male |
-| `ar-MA-MounaNeural` | Female |
+| [`ar-MA-JamalNeural`](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts#arabic) (default) | Male |
+| [`ar-MA-MounaNeural`](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts#arabic) | Female |
 
 ## Usage
 
@@ -52,7 +52,7 @@ source .venv/bin/activate
 pip install -e ".[dev]"
 ```
 
-Requires Python 3.10+ and an internet connection (edge-tts streams from Microsoft servers).
+Requires Python 3.10+ and an internet connection ([edge-tts](https://github.com/rany2/edge-tts) streams from Microsoft servers).
 
 ## Text normalization
 
