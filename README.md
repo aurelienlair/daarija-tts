@@ -6,8 +6,8 @@ Text-to-speech CLI for Moroccan Darija (Arabic script), using Microsoft's [ar-MA
 
 | Voice | Gender |
 |---|---|
-| [`ar-MA-JamalNeural`](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts#arabic) (default) | Male |
-| [`ar-MA-MounaNeural`](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts#arabic) | Female |
+| [`ar-MA-JamalNeural`](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts#arabic) | Male |
+| [`ar-MA-MounaNeural`](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts#arabic) (default) | Female |
 
 ## Usage
 

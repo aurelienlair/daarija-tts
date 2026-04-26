@@ -7,7 +7,7 @@ import edge_tts
 
 from normalize import normalize
 
-DEFAULT_VOICE = "ar-MA-JamalNeural"
+DEFAULT_VOICE = "ar-MA-MounaNeural"
 
 
 async def synthesize(text: str, voice: str, output: str, speed: float) -> None:

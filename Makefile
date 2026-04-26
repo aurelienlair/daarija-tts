@@ -14,7 +14,7 @@ install: ## 🛠️  Create venv and install dependencies
 	$(PIP) install -e ".[dev]"
 
 SPEED ?= 0.75
-VOICE ?= ar-MA-JamalNeural
+VOICE ?= ar-MA-MounaNeural
 
 run: ## ▶️  Synthesize and play (FILE=input.txt or TEXT="..." [SPEED=0.9] [VOICE=ar-MA-MounaNeural])
 	@echo "🔊 synthesizing audio"
