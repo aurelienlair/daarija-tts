@@ -16,6 +16,10 @@ install: ## 🛠️  Create venv and install dependencies
 SPEED ?= 0.75
 VOICE ?= ar-MA-MounaNeural
 
+convert: ## 🎵 Convert input.txt to output.mp3 ([SPEED=0.75] [VOICE=ar-MA-MounaNeural])
+	@echo "🎵 converting input.txt to output.mp3"
+	$(PYTHON) tts.py -f input.txt --speed=$(SPEED) --voice=$(VOICE) -o output.mp3
+
 run: ## ▶️  Synthesize and play (FILE=input.txt or TEXT="..." [SPEED=0.9] [VOICE=ar-MA-MounaNeural])
 	@echo "🔊 synthesizing audio"
 	$(if $(FILE), \
@@ -34,4 +38,4 @@ format: ## ✨ Format with ruff
 	@echo "✨ formatting"
 	$(PYTHON) -m ruff format tts.py normalize.py tests
 
-.PHONY: help install run test lint format
+.PHONY: help install convert run test lint format

@@ -4,12 +4,18 @@ Text-to-speech CLI for Moroccan Darija (Arabic script), using Microsoft's [ar-MA
 
 ## Voices
 
-| Voice | Gender |
-|---|---|
-| [`ar-MA-JamalNeural`](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts#arabic) | Male |
+| Voice                                                                                                                               | Gender |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| [`ar-MA-JamalNeural`](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts#arabic)           | Male   |
 | [`ar-MA-MounaNeural`](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts#arabic) (default) | Female |
 
 ## Usage
+
+### Convert input.txt to output.mp3
+
+```bash
+make convert
+```
 
 ### Synthesize a file
 
@@ -58,8 +64,8 @@ Requires Python 3.10+ and an internet connection ([edge-tts](https://github.com/
 
 `normalize.py` expands common Darija contractions before synthesis:
 
-| Input | Expanded |
-|---|---|
-| فالبيت | في البيت |
-| فواحد | في واحد |
+| Input          | Expanded          |
+| -------------- | ----------------- |
+| فالبيت   | في البيت   |
+| فواحد     | في واحد     |
 | فالدوار | في الدوار |
